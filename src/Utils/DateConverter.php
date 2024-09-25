@@ -20,7 +20,7 @@ Class DateConverter {
             throw new DateOutOfRangeException();
         }
 
-        $nepaliYear = array_key_first($data);
+        $nepaliYear = array_keys($data)[0];
         $relativeEnglishDate = $data[$nepaliYear];
         $difference = $this->getDateDifference($date, $relativeEnglishDate);
         return $this->getNepaliDateByDifference($nepaliYear, $difference);
