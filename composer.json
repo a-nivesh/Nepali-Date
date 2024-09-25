@@ -1,0 +1,17 @@
+{
+    "name": "nivesh/nepali-date",
+    "description": "bikram samwat date and converter",
+    "authors": [
+        {
+            "name": "nivesh.acharya",
+            "email": "nivesh.acharya@worldlink.com.np"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Nivesh\\App\\": "src"
+        },
+        "files": []
+    }
+}
