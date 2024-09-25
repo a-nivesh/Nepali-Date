@@ -82,7 +82,7 @@ echo NepaliDate::getCurrentFiscalYear(); Outputs "2081/82"
 |```{%F}```   | Fiscal year in Nepali                | ```२०८१/८२```                | Falls under ```fiscal year formatters``` |
 |```{%Qi}```  | Quater index in Nepali               | ```२``` for Q2               |                                          |
 |```{%Mqi}``` | Month index in quater in Nepali      | ```२``` for M2               | Falls under ```month formatters```       |
-|```\```      | Escape Character                     | ```{\Y}```                   | ```echo NepaliDate::engDate("2024-09-25")```<br> ```->format("{\Y} means yeaar. Eg: {Y}");``` <br> ```//Outputs: {Y} means yeaar. Eg: 2081```       |
+|```#```      | Escape Character                     | ```{#Y}```                   | ```echo NepaliDate::engDate("2024-09-25")```<br> ```->format("{#Y} means yeaar. Eg: {Y}");``` <br> ```//Outputs: {Y} means yeaar. Eg: 2081```       |
 
 ## License
 

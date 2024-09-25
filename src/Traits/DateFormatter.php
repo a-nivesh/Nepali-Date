@@ -9,6 +9,7 @@ trait DateFormatter {
     private $converter;
     public $MAX_ENG_YEAR = 2044;
     public $MIN_ENG_YEAR = 1942;
+    public $ESCAPE_CHAR = '#';
 
     public function __construct()
     {
@@ -77,25 +78,25 @@ trait DateFormatter {
     public function format($format = "{Y}-{m}-{d}")
     {
         $segments = $this->getAllFormats();
-        return str_replace(array_keys($segments), array_values($segments), $format);
+        return str_replace("{". $this->ESCAPE_CHAR, '{', str_replace(array_keys($segments), array_values($segments), $format));
     }
 
     public function formatMonth($format = "{m}")
     {
         $segments = $this->getMonthFormats();
-        return str_replace(array_keys($segments), array_values($segments), $format);
+        return str_replace("{". $this->ESCAPE_CHAR, '{', str_replace(array_keys($segments), array_values($segments), $format));
     }
 
     public function formatQuater($format = "{Q}")
     {
         $segments = $this->getQuaterFormats();
-        return str_replace(array_keys($segments), array_values($segments), $format);
+        return str_replace("{". $this->ESCAPE_CHAR, '{', str_replace(array_keys($segments), array_values($segments), $format));
     }
 
     public function formatFiscalYear($format = "{F}")
     {
         $segments = $this->getFiscalYearFormats();
-        return str_replace(array_keys($segments), array_values($segments), $format);
+        return str_replace("{". $this->ESCAPE_CHAR, '{', str_replace(array_keys($segments), array_values($segments), $format));
     }
 
     private function getAllFormats()
