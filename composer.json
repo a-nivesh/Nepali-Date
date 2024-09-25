@@ -1,6 +1,9 @@
 {
     "name": "nivesh/nepali-date",
     "description": "bikram samwat date and converter",
+    "license": "MIT",
+    "type": "library",
+    "minimum-stability": "stable",
     "authors": [
         {
             "name": "nivesh.acharya",
