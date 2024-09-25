@@ -10,7 +10,13 @@
             "email": "nivesh.acharya@worldlink.com.np"
         }
     ],
-    "require": {},
+    "require": {
+        "php": ">=7.1"
+    },
+    "repositories": [
+            {"type": "composer", "url": "https://packagist.wlink.com.np/repo/private/"}
+    ],
+
     "autoload": {
         "psr-4": {
             "Nivesh\\App\\": "src"
