@@ -106,12 +106,14 @@ trait DateFormatter {
             '{d}'       => $this->resolveDay(),
             '{ds}'      => $this->resolveNonZeroLeadingDay(),
             '{w}'       => $this->resolveWeekDay(),
+            '{wi}'      => $this->resolveWeekDayIndex(),
             '{ws}'      => $this->resolveShortWeekDay(),
             '{%Y}'      => $this->resolveYear(true),
             '{%y}'      => $this->resolveTwoDigitYear(true),
             '{%d}'      => $this->resolveDay(true),
             '{%ds}'     => $this->resolveNonZeroLeadingDay(true),
             '{%w}'      => $this->resolveWeekDay(true),
+            '{%wi}'     => $this->resolveWeekDayIndex(true),
             '{%ws}'     => $this->resolveShortWeekDay(true),
         ];
         return array_merge($dateFormatts, $this->getMonthFormats(), $this->getQuaterFormats(), $this->getQuaterFormats());
@@ -128,7 +130,6 @@ trait DateFormatter {
             '{%m}'      => $this->resolveMonth(true),
             '{%ms}'     => $this->resolveNonZeroLeadingMonth(true),
             '{%M}'      => $this->resolveMonthName(true),
-            '{%Mq}'     => $this->resolveQuaterlyMonth(true),
             '{%Mqi}'    => $this->resolveQuaterlyMonthIndex(true),
         ];
     }
