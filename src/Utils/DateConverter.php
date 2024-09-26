@@ -35,7 +35,7 @@ Class DateConverter {
 
     private function getNepaliDateByDifference($nepaliYear, $difference)
     {
-        $month = 1;
+        $month = 0;
         $day = 1;
         $mapper = $this->getMonthwiseDays();
         $difference = intval($difference);
@@ -76,11 +76,11 @@ Class DateConverter {
                 }
                 $day = 1;
             } else {
-                $day = $difference;
+                $day = $difference + $day;
                 $difference = 0;
             }
         }
-        $month = str_pad($month, 2, '0', STR_PAD_LEFT);
+        $month = str_pad(++$month, 2, '0', STR_PAD_LEFT);
         $day = str_pad($day, 2, '0', STR_PAD_LEFT);
         return "$nepaliYear-$month-$day";
     }
