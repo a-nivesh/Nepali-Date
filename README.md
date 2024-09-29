@@ -91,7 +91,7 @@ echo NepaliDate::currentYear(); // Outputs "2081"
 |```{%ws}```  | Shorthand weekday in Nepali          | ```आइत```                    |                                          |
 |```{%wi}```  | Weekday index in Nepali              | ```०-६``` ० for आइतबार        |                                          |
 |```{%F}```   | Fiscal year in Nepali                | ```२०८१/८२```                | Falls under ```year formatters``` |
-|```{%Qi}```  | Quater index in Nepali               | ```२``` for Q2               |                                          |
+|```{%Qi}```  | Quater index in Nepali               | ```२``` for Q2               |           Falls under ```quater formatters```                               |
 |```{%Mqi}``` | Month index in quater in Nepali      | ```२``` for M2               | Falls under ```month formatters```       |
 |```#```      | Escape Character                     | ```{#Y}```                   | ```echo NepaliDate::convertToBs("2024-09-25", "{#Y} means year. Eg: {Y}");``` <br> ```//Outputs: {Y} means year. Eg: 2081```      |
 
