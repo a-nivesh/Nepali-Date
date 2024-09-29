@@ -217,4 +217,19 @@ class DateHelper
             return $this->formatter->formatYear($format);
         }
     }
+
+    public function isLastDayOfMonth()
+    {
+        return $this->converter->isLastDayOfMonth();
+    }
+
+    public function isLastDayOfQuater()
+    {
+        return $this->converter->isLastDayOfQuater();
+    }
+
+    public function isLastDayOfYear()
+    {
+        return $this->converter->isLastDayOfYear();
+    }
 }

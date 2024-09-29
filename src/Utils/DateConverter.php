@@ -159,4 +159,19 @@ class DateConverter {
             throw new BsDateOutOfRangeException("BS date out of range! Must be between " . self::MIN_BS_YEAR . " and " . self::MAX_BS_YEAR . ".");
         }
     }
+
+    public function isLastDayOfMonth()
+    {
+        return $this->day == $this->getMonthWiseDays()[$this->year][$this->month];
+    }
+
+    public function isLastDayOfQuater()
+    {
+        return $this->day == $this->getMonthWiseDays()[$this->year][$this->month]  && in_array($this->month, [2, 5, 8, 11]);
+    }
+
+    public function isLastDayOfYear()
+    {
+        return $this->month == 11 && $this->day == $this->getMonthWiseDays()[$this->year][$this->month];
+    }
 }
