@@ -47,15 +47,15 @@ echo NepaliDate::currentYear(); // Outputs "2081"
 | ```daysAfter(int $days, string $format)``` | days ```required``` <br>format ```default:{Y}-{m}-{d}```| ```obj\|string``` | |
 | ```nextWeek(string $format)``` | format ```default:{Y}-{m}-{d}```| ```obj\|string``` | |
 | ```previousWeek(string $format)``` | format ```default:{Y}-{m}-{d}```| ```obj\|string``` | |
-| ```currentMonth(string $format)``` | format ```default:{Y}-{m}-{d}```| ```obj\|string``` | Only month formatters|
-| ```nextMonth(string $format)``` | format ```default:{Y}-{m}-{d}```| ```obj\|string``` | Only month formatters|
-| ```previousMonth(string $format)``` | format ```default:{Y}-{m}-{d}```| ```obj\|string``` | Only month formatters|
-| ```currentQuater(string $format)``` | format ```default:{Y}-{m}-{d}```| ```obj\|string``` | Only quater formatters|
-| ```nextQuater(string $format)``` | format ```default:{Y}-{m}-{d}```| ```obj\|string``` | Only quater formatters|
-| ```previousQuater(string $format)``` | format ```default:{Y}-{m}-{d}```| ```obj\|string``` | Only quater formatters|
-| ```currentYear(string $format)``` | format ```default:{Y}-{m}-{d}```| ```obj\|string``` | Only year formatters|
-| ```nextYear(string $format)``` | format ```default:{Y}-{m}-{d}```| ```obj\|string``` | Only year formatters|
-| ```previousYear(string $format)``` | format ```default:{Y}-{m}-{d}```| ```obj\|string``` | Only year formatters|
+| ```currentMonth(string $format)``` | format ```default:{m}```| ```obj\|string``` | Only month formatters|
+| ```nextMonth(string $format)``` | format ```default:{m}```| ```obj\|string``` | Only month formatters|
+| ```previousMonth(string $format)``` | format ```default:{m}```| ```obj\|string``` | Only month formatters|
+| ```currentQuater(string $format)``` | format ```default:{Q}```| ```obj\|string``` | Only quater formatters|
+| ```nextQuater(string $format)``` | format ```default:{Q}```| ```obj\|string``` | Only quater formatters|
+| ```previousQuater(string $format)``` | format ```default:{Q}```| ```obj\|string``` | Only quater formatters|
+| ```currentYear(string $format)``` | format ```default:{Y}```| ```obj\|string``` | Only year formatters|
+| ```nextYear(string $format)``` | format ```default:{Y}```| ```obj\|string``` | Only year formatters|
+| ```previousYear(string $format)``` | format ```default:{Y}```| ```obj\|string``` | Only year formatters|
 | ```isLastDayOfMonth()``` | | ```boolean``` | |
 | ```isLastDayOfQuater()``` | | ```boolean``` | |
 | ```isLastDayOfYear()``` | | ```boolean``` | |
