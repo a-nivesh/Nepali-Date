@@ -4,7 +4,7 @@ namespace Nivesh\App\Traits;
 
 trait DateMapper
 {
-    public function getMonthwiseDays()
+    protected function getMonthwiseDays()
     {
         return [
             1975 => [31, 32, 31, 32, 31, 30, 30, 30, 29, 30, 29, 31,],
@@ -146,7 +146,7 @@ trait DateMapper
         ];
     }
 
-    public function getNewYearRelativeEnglishDate()
+    protected function getNewYearRelativeEnglishDate()
     {
         return [
             1999 => '1942-04-13',
@@ -255,7 +255,7 @@ trait DateMapper
         ];
     }
 
-    public function getFiscalYearMapping()
+    protected function getFiscalYearMapping()
     {
         return [
             1974 => '1974/75',
@@ -389,7 +389,7 @@ trait DateMapper
         ];
     }
 
-    public function getQuaterMapping()
+    protected function getQuaterMapping()
     {
         return [
             [4, 'Q4',],
@@ -407,7 +407,7 @@ trait DateMapper
         ];
     }
 
-    public function getMonthMapping()
+    protected function getMonthMapping()
     {
         return [
             [1, 'M1',],
@@ -425,7 +425,7 @@ trait DateMapper
         ];
     }
 
-    public function getFullDays()
+    protected function getFullDays()
     {
         return [
             ['आइतबार', 'Sunday',],
@@ -438,7 +438,7 @@ trait DateMapper
         ];
     }
 
-    public function getShortDays()
+    protected function getShortDays()
     {
         return [
             ['आइत', 'Sun',],
@@ -451,7 +451,7 @@ trait DateMapper
         ];
     }
 
-    public function getNepaliMonthName()
+    protected function getNepaliMonthName()
     {
         return [
             ['वैशाख', 'Baishak',],
@@ -469,7 +469,7 @@ trait DateMapper
         ];
     }
 
-    public function getNepaliNumbers()
+    protected function getNepaliNumbers()
     {
         return [
             '०',
