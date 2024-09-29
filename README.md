@@ -80,8 +80,8 @@ echo NepaliDate::currentYear(); // Outputs "2081"
 |```{Qi}```   | Quater index                         | ```4``` for Q4               | Falls under ```quater formatters```      |
 |```{Mq}```   | Month in quater                      | ```M3```                     | Falls under ```month formatters ```      |
 |```{Mqi}```  | Month index in quater                | ```1``` for M1               | Falls under ```month formatters```       |
-|```{%Y}```   | 4 digit year in Nepali               | ```२०८१```                   |                                          |
-|```{%y}```   | 2 digit year in Nepali               | ```८१```                     |                                          |
+|```{%Y}```   | 4 digit year in Nepali               | ```२०८१```                   |                         Falls under ```year formatters```                 |
+|```{%y}```   | 2 digit year in Nepali               | ```८१```                     |                                  Falls under ```year formatters```        |
 |```{%m}```   | Month digit in Nepali                | ```०९```                     | Falls under ```month formatters```       |
 |```{%ms}```  | No leading 0 month in Nepali         | ```९```                      | Falls under ```month formatters```       |
 |```{%M}```   | Full month name in Nepali            | ```असोज```                   | Falls under ```month formatters```       |
