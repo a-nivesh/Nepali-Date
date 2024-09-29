@@ -1,9 +1,9 @@
 <?php
 
-namespace Nivesh\App;
+namespace Nivesh\NepaliDate;
 
 use Exception;
-use Nivesh\App\Utils\DateHelper;
+use Nivesh\NepaliDate\Utils\DateHelper;
 
 class NepaliDate {
     private $helper;

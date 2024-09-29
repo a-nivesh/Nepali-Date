@@ -1,8 +1,8 @@
 <?php
 
-namespace Nivesh\App\Utils;
+namespace Nivesh\NepaliDate\Utils;
 
-use Nivesh\App\Traits\DateMapper;
+use Nivesh\NepaliDate\Traits\DateMapper;
 
 class DateFormatter {
 

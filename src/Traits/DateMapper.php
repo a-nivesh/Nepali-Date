@@ -1,6 +1,6 @@
 <?php
 
-namespace Nivesh\App\Traits;
+namespace Nivesh\NepaliDate\Traits;
 
 trait DateMapper
 {

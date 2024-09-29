@@ -16,7 +16,6 @@
     "repositories": [
             {"type": "composer", "url": "https://packagist.wlink.com.np/repo/private/"}
     ],
-
     "autoload": {
         "psr-4": {
             "Nivesh\\NepaliDate\\": "src"

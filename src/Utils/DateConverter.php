@@ -1,12 +1,12 @@
 <?php
 
-namespace Nivesh\App\Utils;
+namespace Nivesh\NepaliDate\Utils;
 
 use DateTime;
 use Exception;
-use Nivesh\App\Exceptions\AdDateOutOfRangeException;
-use Nivesh\App\Exceptions\BsDateOutOfRangeException;
-use Nivesh\App\Traits\DateMapper;
+use Nivesh\NepaliDate\Exceptions\AdDateOutOfRangeException;
+use Nivesh\NepaliDate\Exceptions\BsDateOutOfRangeException;
+use Nivesh\NepaliDate\Traits\DateMapper;
 
 class DateConverter {
 

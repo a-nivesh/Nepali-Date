@@ -1,6 +1,6 @@
 <?php
 
-namespace Nivesh\App\Exceptions;
+namespace Nivesh\NepaliDate\Exceptions;
 
 use Exception;
 
