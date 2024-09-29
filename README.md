@@ -56,6 +56,9 @@ echo NepaliDate::currentYear(); // Outputs "2081"
 | ```currentYear(string $format)``` | format ```default:{Y}-{m}-{d}```| ```obj\|string``` | Only year formatters|
 | ```nextYear(string $format)``` | format ```default:{Y}-{m}-{d}```| ```obj\|string``` | Only year formatters|
 | ```previousYear(string $format)``` | format ```default:{Y}-{m}-{d}```| ```obj\|string``` | Only year formatters|
+| ```isLastDayOfMonth()``` | | ```boolean``` | |
+| ```isLastDayOfQuater()``` | | ```boolean``` | |
+| ```isLastDayOfYear()``` | | ```boolean``` | |
 
 
 ## Formatters
