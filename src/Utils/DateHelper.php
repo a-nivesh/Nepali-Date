@@ -15,7 +15,7 @@ class DateHelper
     const STEP_DAY = 2;
     const STEP_MONTH = 3;
     const STEP_QUARTER = 4;
-    const STEP_FISCAL_YEAR = 5;
+    const STEP_YEAR = 5;
 
     public function __construct()
     {
@@ -163,8 +163,8 @@ class DateHelper
 
     public function nextYear(?string $format = null)
     {
-        $this->validateStep(self::STEP_FISCAL_YEAR);
-        $this->currentStep = self::STEP_FISCAL_YEAR;
+        $this->validateStep(self::STEP_YEAR);
+        $this->currentStep = self::STEP_YEAR;
         if (!isset($this->converter->year, $this->converter->month, $this->converter->day, $this->converter->weekday)) {
             $this->converter->convertToBs();
         }
@@ -174,8 +174,8 @@ class DateHelper
 
     public function currentYear(?string $format = null)
     {
-        $this->validateStep(self::STEP_FISCAL_YEAR);
-        $this->currentStep = self::STEP_FISCAL_YEAR;
+        $this->validateStep(self::STEP_YEAR);
+        $this->currentStep = self::STEP_YEAR;
         if (!isset($this->converter->year, $this->converter->month, $this->converter->day, $this->converter->weekday)) {
             $this->converter->convertToBs();
         }
@@ -184,8 +184,8 @@ class DateHelper
 
     public function previousYear(?string $format = null)
     {
-        $this->validateStep(self::STEP_FISCAL_YEAR);
-        $this->currentStep = self::STEP_FISCAL_YEAR;
+        $this->validateStep(self::STEP_YEAR);
+        $this->currentStep = self::STEP_YEAR;
         if (!isset($this->converter->year, $this->converter->month, $this->converter->day, $this->converter->weekday)) {
             $this->converter->convertToBs();
         }
@@ -213,7 +213,7 @@ class DateHelper
             return $this->formatter->formatMonth($format);
         } else if ($this->currentStep === self::STEP_QUARTER) {
             return $this->formatter->formatQuater($format);
-        } else if ($this->currentStep === self::STEP_FISCAL_YEAR) {
+        } else if ($this->currentStep === self::STEP_YEAR) {
             return $this->formatter->formatYear($format);
         }
     }
