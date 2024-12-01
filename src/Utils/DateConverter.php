@@ -147,7 +147,7 @@ class DateConverter {
         }
     }
 
-    public function addQuater(int $value)
+    public function addQuarter(int $value)
     {
         $this->addMonth($value * 3);
     }
@@ -165,7 +165,7 @@ class DateConverter {
         return $this->day == $this->getMonthWiseDays()[$this->year][$this->month];
     }
 
-    public function isLastDayOfQuater()
+    public function isLastDayOfQuarter()
     {
         return $this->day == $this->getMonthWiseDays()[$this->year][$this->month]  && in_array($this->month, [2, 5, 8, 11]);
     }

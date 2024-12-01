@@ -26,10 +26,10 @@ class DateFormatter {
         return $this->handleEscape(str_replace(array_keys($segments), array_values($segments), $format));
     }
 
-    public function formatQuater($format)
+    public function formatQuarter($format)
     {
         $format = $format ? $format : '{Q}';
-        $segments = $this->getQuaterFormats();
+        $segments = $this->getQuarterFormats();
         return $this->handleEscape(str_replace(array_keys($segments), array_values($segments), $format));
     }
 
@@ -59,7 +59,7 @@ class DateFormatter {
             '{%wi}'     => $this->resolveWeekDayIndex(true),
             '{%ws}'     => $this->resolveShortWeekDay(true),
         ];
-        return array_merge($dateFormats, $this->getMonthFormats(), $this->getQuaterFormats(), $this->getYearFormats());
+        return array_merge($dateFormats, $this->getMonthFormats(), $this->getQuarterFormats(), $this->getYearFormats());
     }
 
     private function getMonthFormats()
@@ -68,21 +68,21 @@ class DateFormatter {
             '{m}'       => $this->resolveMonth(),
             '{ms}'      => $this->resolveNonZeroLeadingMonth(),
             '{M}'       => $this->resolveMonthName(),
-            '{Mq}'      => $this->resolveQuaterlyMonth(),
-            '{Mqi}'     => $this->resolveQuaterlyMonthIndex(),
+            '{Mq}'      => $this->resolveQuarterlyMonth(),
+            '{Mqi}'     => $this->resolveQuarterlyMonthIndex(),
             '{%m}'      => $this->resolveMonth(true),
             '{%ms}'     => $this->resolveNonZeroLeadingMonth(true),
             '{%M}'      => $this->resolveMonthName(true),
-            '{%Mqi}'    => $this->resolveQuaterlyMonthIndex(true),
+            '{%Mqi}'    => $this->resolveQuarterlyMonthIndex(true),
         ];
     }
 
-    private function getQuaterFormats()
+    private function getQuarterFormats()
     {
         return [
-            '{Q}'       => $this->resolveQuater(),
-            '{Qi}'      => $this->resolveQuaterIndex(),
-            '{%Qi}'     => $this->resolveQuaterIndex(true),
+            '{Q}'       => $this->resolveQuarter(),
+            '{Qi}'      => $this->resolveQuarterIndex(),
+            '{%Qi}'     => $this->resolveQuarterIndex(true),
         ];
     }
 
@@ -171,23 +171,23 @@ class DateFormatter {
         return $nepali ? $this->convertNumber($fiscalYear) : $fiscalYear;
     }
 
-    private function resolveQuater()
+    private function resolveQuarter()
     {
-        return $this->getQuaterMapping()[$this->month][1];
+        return $this->getQuarterMapping()[$this->month][1];
     }
 
-    private function resolveQuaterlyMonth()
+    private function resolveQuarterlyMonth()
     {
         return $this->getMonthMapping()[$this->month][1];
     }
 
-    private function resolveQuaterIndex($nepali = false)
+    private function resolveQuarterIndex($nepali = false)
     {
-        $index =  $this->getQuaterMapping()[$this->month][0];
+        $index =  $this->getQuarterMapping()[$this->month][0];
         return $nepali ? $this->convertNumber($index) : $index;
     }
 
-    private function resolveQuaterlyMonthIndex($nepali = false)
+    private function resolveQuarterlyMonthIndex($nepali = false)
     {
         $index =  $this->getMonthMapping()[$this->month][0];
         return $nepali ? $this->convertNumber($index) : $index;

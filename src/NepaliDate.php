@@ -78,19 +78,19 @@ class NepaliDate {
         return $this->helper->previousMonth($format);
     }
 
-    protected function currentQuater(string $format = null)
+    protected function currentQuarter(string $format = null)
     {
-        return $this->helper->currentQuater($format);
+        return $this->helper->currentQuarter($format);
     }
 
-    protected function nextQuater(string $format = null)
+    protected function nextQuarter(string $format = null)
     {
-        return $this->helper->nextQuater($format);
+        return $this->helper->nextQuarter($format);
     }
 
-    protected function previousQuater(string $format = null)
+    protected function previousQuarter(string $format = null)
     {
-        return $this->helper->previousQuater($format);
+        return $this->helper->previousQuarter($format);
     }
 
     protected function currentYear(string $format = null)

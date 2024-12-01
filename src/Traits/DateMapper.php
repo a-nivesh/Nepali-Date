@@ -389,7 +389,7 @@ trait DateMapper
         ];
     }
 
-    protected function getQuaterMapping()
+    protected function getQuarterMapping()
     {
         return [
             [4, 'Q4',],

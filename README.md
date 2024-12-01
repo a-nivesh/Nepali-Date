@@ -31,7 +31,7 @@ use Nivesh\NepaliDate\NepaliDate;
 echo NepaliDate::convertToBs(); // Outputs "2081-06-09"
 echo NepaliDate::convertToBs('2024-09-25', "{Y}-{M}-{d}, {w}"); // Outputs "2081-Asoj-09, Wednesday"
 echo NepaliDate::today("{%d} {%M} {%Y}"); // Outputs "०९ असोज २०८१"
-echo NepaliDate::previousQuater(); // Outputs "Q4"
+echo NepaliDate::previousQuarter(); // Outputs "Q4"
 echo NepaliDate::nextMonth("{Mq}"); // Outputs "M2"
 echo NepaliDate::currentYear(); // Outputs "2081"
 ```
@@ -50,14 +50,14 @@ echo NepaliDate::currentYear(); // Outputs "2081"
 | ```currentMonth(string $format)``` | format ```default:{m}```| ```obj\|string``` | Only month formatters|
 | ```nextMonth(string $format)``` | format ```default:{m}```| ```obj\|string``` | Only month formatters|
 | ```previousMonth(string $format)``` | format ```default:{m}```| ```obj\|string``` | Only month formatters|
-| ```currentQuater(string $format)``` | format ```default:{Q}```| ```obj\|string``` | Only quater formatters|
-| ```nextQuater(string $format)``` | format ```default:{Q}```| ```obj\|string``` | Only quater formatters|
-| ```previousQuater(string $format)``` | format ```default:{Q}```| ```obj\|string``` | Only quater formatters|
+| ```currentQuarter(string $format)``` | format ```default:{Q}```| ```obj\|string``` | Only quarter formatters|
+| ```nextQuarter(string $format)``` | format ```default:{Q}```| ```obj\|string``` | Only quarter formatters|
+| ```previousQuarter(string $format)``` | format ```default:{Q}```| ```obj\|string``` | Only quarter formatters|
 | ```currentYear(string $format)``` | format ```default:{Y}```| ```obj\|string``` | Only year formatters|
 | ```nextYear(string $format)``` | format ```default:{Y}```| ```obj\|string``` | Only year formatters|
 | ```previousYear(string $format)``` | format ```default:{Y}```| ```obj\|string``` | Only year formatters|
 | ```isLastDayOfMonth()``` | | ```boolean``` | |
-| ```isLastDayOfQuater()``` | | ```boolean``` | |
+| ```isLastDayOfQuarter()``` | | ```boolean``` | |
 | ```isLastDayOfYear()``` | | ```boolean``` | |
 
 
@@ -76,10 +76,10 @@ echo NepaliDate::currentYear(); // Outputs "2081"
 |```{ws}```   | Shorthand weekday                    | ```Sun```                    |                                          |
 |```{wi}```   | Weekday index                        | ```0-6``` 0 for Sunday       |                                          |
 |```{F}```    | Fiscal year                          | ```2081/81```                | Falls under ```year formatters``` |
-|```{Q}```    | Quater                               | ```Q1```                     | Falls under ```quater formatters```      |
-|```{Qi}```   | Quater index                         | ```4``` for Q4               | Falls under ```quater formatters```      |
-|```{Mq}```   | Month in quater                      | ```M3```                     | Falls under ```month formatters ```      |
-|```{Mqi}```  | Month index in quater                | ```1``` for M1               | Falls under ```month formatters```       |
+|```{Q}```    | Quarter                               | ```Q1```                     | Falls under ```quarter formatters```      |
+|```{Qi}```   | Quarter index                         | ```4``` for Q4               | Falls under ```quarter formatters```      |
+|```{Mq}```   | Month in quarter                      | ```M3```                     | Falls under ```month formatters ```      |
+|```{Mqi}```  | Month index in quarter                | ```1``` for M1               | Falls under ```month formatters```       |
 |```{%Y}```   | 4 digit year in Nepali               | ```२०८१```                   |                         Falls under ```year formatters```                 |
 |```{%y}```   | 2 digit year in Nepali               | ```८१```                     |                                  Falls under ```year formatters```        |
 |```{%m}```   | Month digit in Nepali                | ```०९```                     | Falls under ```month formatters```       |
@@ -91,8 +91,8 @@ echo NepaliDate::currentYear(); // Outputs "2081"
 |```{%ws}```  | Shorthand weekday in Nepali          | ```आइत```                    |                                          |
 |```{%wi}```  | Weekday index in Nepali              | ```०-६``` ० for आइतबार        |                                          |
 |```{%F}```   | Fiscal year in Nepali                | ```२०८१/८२```                | Falls under ```year formatters``` |
-|```{%Qi}```  | Quater index in Nepali               | ```२``` for Q2               |           Falls under ```quater formatters```                               |
-|```{%Mqi}``` | Month index in quater in Nepali      | ```२``` for M2               | Falls under ```month formatters```       |
+|```{%Qi}```  | Quarter index in Nepali               | ```२``` for Q2               |           Falls under ```quarter formatters```                               |
+|```{%Mqi}``` | Month index in quarter in Nepali      | ```२``` for M2               | Falls under ```month formatters```       |
 |```#```      | Escape Character                     | ```{#Y}```                   | ```echo NepaliDate::convertToBs("2024-09-25", "{#Y} means year. Eg: {Y}");``` <br> ```//Outputs: {Y} means year. Eg: 2081```      |
 
 ## License

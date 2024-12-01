@@ -129,18 +129,18 @@ class DateHelper
         return $format ? $this->format($format) : $this;
     }
 
-    public function nextQuater(?string $format = null)
+    public function nextQuarter(?string $format = null)
     {
         $this->validateStep(self::STEP_QUARTER);
         $this->currentStep = self::STEP_QUARTER;
         if (!isset($this->converter->year, $this->converter->month, $this->converter->day, $this->converter->weekday)) {
             $this->converter->convertToBs();
         }
-        $this->converter->addQuater(1);
+        $this->converter->addQuarter(1);
         return $format ? $this->format($format) : $this;
     }
 
-    public function currentQuater(?string $format = null)
+    public function currentQuarter(?string $format = null)
     {
         $this->validateStep(self::STEP_QUARTER);
         $this->currentStep = self::STEP_QUARTER;
@@ -150,14 +150,14 @@ class DateHelper
         return $format ? $this->format($format) : $this;
     }
 
-    public function previousQuater(?string $format = null)
+    public function previousQuarter(?string $format = null)
     {
         $this->validateStep(self::STEP_QUARTER);
         $this->currentStep = self::STEP_QUARTER;
         if (!isset($this->converter->year, $this->converter->month, $this->converter->day, $this->converter->weekday)) {
             $this->converter->convertToBs();
         }
-        $this->converter->addQuater(-1);
+        $this->converter->addQuarter(-1);
         return $format ? $this->format($format) : $this;
     }
 
@@ -212,7 +212,7 @@ class DateHelper
         } else if ($this->currentStep === self::STEP_MONTH) {
             return $this->formatter->formatMonth($format);
         } else if ($this->currentStep === self::STEP_QUARTER) {
-            return $this->formatter->formatQuater($format);
+            return $this->formatter->formatQuarter($format);
         } else if ($this->currentStep === self::STEP_YEAR) {
             return $this->formatter->formatYear($format);
         }
@@ -223,9 +223,9 @@ class DateHelper
         return $this->converter->isLastDayOfMonth();
     }
 
-    public function isLastDayOfQuater()
+    public function isLastDayOfQuarter()
     {
-        return $this->converter->isLastDayOfQuater();
+        return $this->converter->isLastDayOfQuarter();
     }
 
     public function isLastDayOfYear()
