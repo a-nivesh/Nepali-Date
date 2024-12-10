@@ -39,6 +39,25 @@ class DateHelper
         return $format ? $this->format($format) : $this;
     }
 
+    public function convertToAd($date)
+    {
+        if ($this->currentStep) {
+            throw new Exception("Method convertToAd() is not callable.");
+        }
+        return $this->converter->convertToAd($date);
+    }
+
+    public function nepaliDate($date, ?string $format)
+    {
+        if ($this->isBsConverted) {
+            throw new Exception("Method nepaliDate() is not callable.");
+        }
+        $this->converter->nepaliDate($date);
+        $this->currentStep = self::STEP_CONVERT_BS;
+        $this->isBsConverted = true;
+        return $format ? $this->format($format) : $this;
+    }
+
     public function today(?string $format)
     {
         $this->validateStep(self::STEP_DAY);

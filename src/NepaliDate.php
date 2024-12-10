@@ -28,6 +28,11 @@ class NepaliDate {
         return $this->helper->convertToBs($date, $format);
     }
 
+    protected function convertToAd(string $date)
+    {
+        return $this->helper->convertToAd($date);
+    }
+
     protected function today(string $format = null)
     {
         return $this->helper->today($format);
@@ -106,5 +111,10 @@ class NepaliDate {
     protected function previousYear(string $format = null)
     {
         return $this->helper->previousYear($format);
+    }
+
+    protected function nepaliDate(string $date, string $format = null)
+    {
+        return $this->helper->nepaliDate($date, $format);
     }
 }

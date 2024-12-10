@@ -44,6 +44,37 @@ class DateConverter {
         $this->calculateNepaliDateByDifference($difference);
     }
 
+    public function convertToAd($date)
+    {
+        $matches = $this->validateDateRegex($date);
+        if (!$matches) {
+            throw new Exception("Invalid Date Provided!");
+        }
+        $year = (int)$matches['year'];
+        $month = (int)$matches['month'];
+        $day = (int)$matches['day'];
+        $this->validateBsYear($year);
+        if ($month > 12 || $month < 1) {
+            throw new Exception("Invalid Date Provided!");
+        }
+        if ($day < 1 || $day > $this->getMonthwiseDays()[$year][$month-1]) {
+            throw new Exception("Invalid Date Provided!");
+        }
+        $this->year = $year;
+        $this->month = $month - 1;
+        $this->day = $day;
+
+        $adDate = $this->getNewYearRelativeEnglishDate()[$this->year];
+        $nepaliMonths = $this->getMonthwiseDays()[$this->year];
+        $days = array_slice($nepaliMonths, 0, $this->month);
+        $difference = array_reduce($days, function($carry, $day) {
+            return $carry + $day;
+        }) + $this->day - 1;
+        $timestamp = strtotime($adDate . " + $difference days");
+        $this->weekday = intval(date('w', $timestamp));
+        return date('Y-m-d', $timestamp);
+    }
+
     private function validate($date)
     {
         if (!$this->checkIfCorrectDate($date)) {
@@ -57,19 +88,26 @@ class DateConverter {
             return false;
         }
     
-        $regex = '/^(?<year>\d{4})([-\/])(?<month>\d{2})\2(?<day>\d{2})$/';
-        if (!preg_match($regex, $date, $matches)) {
+        $matches = $this->validateDateRegex($date);
+        if (!$matches) {
             return false;
         }
 
         $year = (int)$matches['year'];
         $month = (int)$matches['month'];
         $day = (int)$matches['day'];
-        if ($year > self::MAX_AD_YEAR || $year < self::MIN_AD_YEAR) {
-            throw new AdDateOutOfRangeException("AD date out of range! Must be between " . self::MIN_AD_YEAR . " and " . self::MAX_AD_YEAR . ".");
-        }
+        $this->validateAdYear($year);
         
         return checkdate($month, $day, $year);
+    }
+
+    private function validateDateRegex($date)
+    {
+        $regex = '/^(?<year>\d{4})([-\/])(?<month>\d{2})\2(?<day>\d{2})$/';
+        if (!preg_match($regex, $date, $matches)) {
+            return false;
+        }
+        return $matches;
     }
 
     private function getDateDifference($date1, $date2)
@@ -96,9 +134,7 @@ class DateConverter {
                     $this->month--;
                 }else {
                     $this->year--;
-                    if ($this->year < self::MIN_BS_YEAR || $this->year > self::MAX_BS_YEAR) {
-                        throw new BsDateOutOfRangeException("BS date out of range! Must be between " . self::MIN_BS_YEAR . " and " . self::MAX_BS_YEAR . ".");
-                    }
+                    $this->validateBsYear($this->year);
                     $this->month = 11;
                 }
                 $difference += $this->day;
@@ -118,9 +154,7 @@ class DateConverter {
                 } else {
                     $this->month = 0;
                     $this->year++;
-                    if ($this->year > self::MAX_BS_YEAR || $this->year < self::MIN_BS_YEAR) {
-                        throw new BsDateOutOfRangeException("BS date out of range! Must be between " . self::MIN_BS_YEAR . " and " . self::MAX_BS_YEAR . ".");
-                    }
+                    $this->validateBsYear($this->year);
                 }
                 $this->day = 0;
             } else {
@@ -142,9 +176,7 @@ class DateConverter {
         $yearsToAdd = floor($monthDiff / 12);
         $this->month = $monthDiff < 0 ? 12 - (($this->month + $value) % 12) : ($this->month + $value) % 12;
         $this->year += $yearsToAdd;
-        if ($this->year > self::MAX_BS_YEAR || $this->year < self::MIN_BS_YEAR) {
-            throw new BsDateOutOfRangeException("BS date out of range! Must be between " . self::MIN_BS_YEAR . " and " . self::MAX_BS_YEAR . ".");
-        }
+        $this->validateBsYear($this->year);
     }
 
     public function addQuarter(int $value)
@@ -155,9 +187,7 @@ class DateConverter {
     public function addYear(int $value)
     {
         $this->year += $value;
-        if ($this->year > self::MAX_BS_YEAR || $this->year < self::MIN_BS_YEAR) {
-            throw new BsDateOutOfRangeException("BS date out of range! Must be between " . self::MIN_BS_YEAR . " and " . self::MAX_BS_YEAR . ".");
-        }
+        $this->validateBsYear($this->year);
     }
 
     public function isLastDayOfMonth()
@@ -173,5 +203,57 @@ class DateConverter {
     public function isLastDayOfYear()
     {
         return $this->month == 11 && $this->day == $this->getMonthWiseDays()[$this->year][$this->month];
+    }
+
+    public function nepaliDate($date)
+    {
+        $this->convertToAd($date);
+    }
+
+    private function validateBsYear($year)
+    {
+        if ($year > self::MAX_BS_YEAR || $year < self::MIN_BS_YEAR) {
+            throw new BsDateOutOfRangeException("BS date out of range! Must be between " . self::MIN_BS_YEAR . " and " . self::MAX_BS_YEAR . ".");
+        }
+    }
+
+    private function validateAdYear($year)
+    {
+        if ($year > self::MAX_AD_YEAR || $year < self::MIN_AD_YEAR) {
+            throw new AdDateOutOfRangeException("AD date out of range! Must be between " . self::MIN_AD_YEAR . " and " . self::MAX_AD_YEAR . ".");
+        }
+    }
+
+    public function nepaliYear(int $year)
+    {
+        $this->validateBsYear($year);
+        if (!isset($this->month) || !isset($this->day) || !isset($this->year)) {
+            $this->convertToBs();
+        }
+        $this->year = $year;
+    }
+
+    public function nepaliMonth(int $month)
+    {
+        if ($month > 12 || $month < 1) {
+            throw new Exception("Invalid Date Provided!");
+        }
+
+        if (!isset($this->month) || !isset($this->day) || !isset($this->year)) {
+            $this->convertToBs();
+        }
+        $this->month = $month - 1;
+    }
+
+    public function nepaliDay(int $day)
+    {
+        if (!isset($this->month) || !isset($this->day) || !isset($this->year)) {
+            $this->convertToBs();
+        }
+
+        if ($day < 1 || $day > $this->getMonthwiseDays()[$this->year][$this->month]) {
+            throw new Exception("Invalid Date Provided!");
+        }
+        $this->day = $day;
     }
 }
