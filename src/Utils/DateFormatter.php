@@ -59,12 +59,12 @@ class DateFormatter {
             '{%wi}'     => $this->resolveWeekDayIndex(true),
             '{%ws}'     => $this->resolveShortWeekDay(true),
         ];
-        return array_merge($dateFormats, $this->getMonthFormats(), $this->getQuarterFormats(), $this->getYearFormats());
+        return array_merge($dateFormats, $this->getMonthFormats());
     }
 
     private function getMonthFormats()
     {
-        return [
+        $monthFormats = [
             '{m}'       => $this->resolveMonth(),
             '{ms}'      => $this->resolveNonZeroLeadingMonth(),
             '{M}'       => $this->resolveMonthName(),
@@ -75,15 +75,17 @@ class DateFormatter {
             '{%M}'      => $this->resolveMonthName(true),
             '{%Mqi}'    => $this->resolveQuarterlyMonthIndex(true),
         ];
+        return array_merge($monthFormats, $this->getQuarterFormats());
     }
 
     private function getQuarterFormats()
     {
-        return [
+        $quaterFormats = [
             '{Q}'       => $this->resolveQuarter(),
             '{Qi}'      => $this->resolveQuarterIndex(),
             '{%Qi}'     => $this->resolveQuarterIndex(true),
         ];
+        return array_merge($quaterFormats, $this->getYearFormats());
     }
 
     private function getYearFormats()

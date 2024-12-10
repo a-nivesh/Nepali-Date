@@ -34,12 +34,15 @@ echo NepaliDate::today("{%d} {%M} {%Y}"); // Outputs "०९ असोज २०
 echo NepaliDate::previousQuarter(); // Outputs "Q4"
 echo NepaliDate::nextMonth("{Mq}"); // Outputs "M2"
 echo NepaliDate::currentYear(); // Outputs "2081"
+echo NepaliDate::convertToAd("2081-08-25"); // Outputs "2024-12-10"
 ```
 
 ## Available Methods
 |   Method | Params | Return |Remarks |
 |-----------------------------|---------------------|----------------------------------------------|----------------|
-| ```convertToBs(string $date, string format)``` | date ```default:today```<br>format ```default:{Y}-{m}-{d}``` | ```obj\|string``` | Arg ```$date```:compatible formats YYYY-MM-DD or YYYY/MM/DD |
+| ```convertToBs(string $date, string $format)``` | date ```default:today```<br>format ```default:{Y}-{m}-{d}``` | ```obj\|string``` | Arg ```$date```:compatible formats YYYY-MM-DD or YYYY/MM/DD |
+|```convertToAd(string $date)```|date|```string```|date should be passed on YYYY-MM-DD format|
+|```nepaliDate(string $date, string $format)```|date<br> format ```default:{Y}-{m}-{d}``` |```obj\|string```|date should be passed on YYYY-MM-DD format|
 | ```today(string $format)``` | format ```default:{Y}-{m}-{d}```| ```obj\|string``` | |
 | ```yesterday(string $format)``` | format ```default:{Y}-{m}-{d}```|```obj\|string``` | |
 | ```tomorrow(string $format)``` | format ```default:{Y}-{m}-{d}```| ```obj\|string``` | |
