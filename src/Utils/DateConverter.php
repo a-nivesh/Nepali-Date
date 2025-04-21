@@ -174,7 +174,7 @@ class DateConverter {
     {
         $monthDiff = $this->month + $value;
         $yearsToAdd = floor($monthDiff / 12);
-        $this->month = $monthDiff < 0 ? 12 - (($this->month + $value) % 12) : ($this->month + $value) % 12;
+        $this->month = $monthDiff < 0 ? 12 + (($this->month + $value) % 12) : ($this->month + $value) % 12;
         $this->year += $yearsToAdd;
         $this->validateBsYear($this->year);
     }
