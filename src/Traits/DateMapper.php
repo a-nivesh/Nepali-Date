@@ -454,7 +454,7 @@ trait DateMapper
     protected function getNepaliMonthName()
     {
         return [
-            ['वैशाख', 'Baishak',],
+            ['वैशाख', 'Baishakh',],
             ['जेठ', 'Jeth',],
             ['असार', 'Asar',],
             ['साउन', 'Shrawan',],
