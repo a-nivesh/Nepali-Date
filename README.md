@@ -78,7 +78,7 @@ echo NepaliDate::convertToAd("2081-08-25"); // Outputs "2024-12-10"
 |```{w}```    | Full weekday                         | ```Sunday```                 |                                          |
 |```{ws}```   | Shorthand weekday                    | ```Sun```                    |                                          |
 |```{wi}```   | Weekday index                        | ```0-6``` 0 for Sunday       |                                          |
-|```{F}```    | Fiscal year                          | ```2081/81```                | Falls under ```year formatters``` |
+|```{F}```    | Fiscal year                          | ```2081/82```                | Falls under ```year formatters``` |
 |```{Q}```    | Quarter                               | ```Q1```                     | Falls under ```quarter formatters```      |
 |```{Qi}```   | Quarter index                         | ```4``` for Q4               | Falls under ```quarter formatters```      |
 |```{Mq}```   | Month in quarter                      | ```M3```                     | Falls under ```month formatters ```      |
