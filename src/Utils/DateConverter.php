@@ -18,7 +18,7 @@ class DateConverter {
     const MAX_BS_YEAR = 2100;
     const MIN_BS_YEAR = 2000;
 
-    public $year, $month, $day, $weekday;
+    public int $year, $month, $day, $weekday;
 
     public function convertToBs($date = null)
     {
@@ -44,7 +44,7 @@ class DateConverter {
         $this->calculateNepaliDateByDifference($difference);
     }
 
-    public function convertToAd($date)
+    public function convertToAd(string $date)
     {
         $matches = $this->validateDateRegex($date);
         if (!$matches) {
@@ -75,14 +75,14 @@ class DateConverter {
         return date('Y-m-d', $timestamp);
     }
 
-    private function validate($date)
+    private function validate(string $date)
     {
         if (!$this->checkIfCorrectDate($date)) {
             throw new Exception("Invalid Date Provided!");
         }
     }
 
-    private function checkIfCorrectDate($date)
+    private function checkIfCorrectDate(string $date)
     {
         if (strpos($date, '-') !== false && strpos($date, '/') !== false) {
             return false;
@@ -101,7 +101,7 @@ class DateConverter {
         return checkdate($month, $day, $year);
     }
 
-    private function validateDateRegex($date)
+    private function validateDateRegex(string $date)
     {
         $regex = '/^(?<year>\d{4})([-\/])(?<month>\d{2})\2(?<day>\d{2})$/';
         if (!preg_match($regex, $date, $matches)) {
@@ -110,7 +110,7 @@ class DateConverter {
         return $matches;
     }
 
-    private function getDateDifference($date1, $date2)
+    private function getDateDifference(string $date1, string $date2)
     {
         $date1 = new DateTime($date1);
         $date2 = new DateTime($date2);
@@ -205,19 +205,19 @@ class DateConverter {
         return $this->month == 11 && $this->day == $this->getMonthWiseDays()[$this->year][$this->month];
     }
 
-    public function nepaliDate($date)
+    public function nepaliDate(string $date)
     {
         $this->convertToAd($date);
     }
 
-    private function validateBsYear($year)
+    private function validateBsYear(string $year)
     {
         if ($year > self::MAX_BS_YEAR || $year < self::MIN_BS_YEAR) {
             throw new BsDateOutOfRangeException("BS date out of range! Must be between " . self::MIN_BS_YEAR . " and " . self::MAX_BS_YEAR . ".");
         }
     }
 
-    private function validateAdYear($year)
+    private function validateAdYear(string $year)
     {
         if ($year > self::MAX_AD_YEAR || $year < self::MIN_AD_YEAR) {
             throw new AdDateOutOfRangeException("AD date out of range! Must be between " . self::MIN_AD_YEAR . " and " . self::MAX_AD_YEAR . ".");

@@ -6,7 +6,8 @@ use Exception;
 
 class DateHelper
 {
-    private $converter, $formatter;
+    private DateConverter $converter;
+    private DateFormatter $formatter;
 
     private int $currentStep = 0;
     private bool $isBsConverted = false;
@@ -28,7 +29,7 @@ class DateHelper
         return $this->format();
     }
 
-    public function convertToBs($date = null, ?string $format)
+    public function convertToBs(?string $date, ?string $format)
     {
         if ($this->isBsConverted) {
             throw new Exception("Method convertToBs() is not callable.");
@@ -39,7 +40,7 @@ class DateHelper
         return $format ? $this->format($format) : $this;
     }
 
-    public function convertToAd($date)
+    public function convertToAd(string $date)
     {
         if ($this->currentStep) {
             throw new Exception("Method convertToAd() is not callable.");
@@ -47,7 +48,7 @@ class DateHelper
         return $this->converter->convertToAd($date);
     }
 
-    public function nepaliDate($date, ?string $format)
+    public function nepaliDate(string $date, ?string $format)
     {
         if ($this->isBsConverted) {
             throw new Exception("Method nepaliDate() is not callable.");

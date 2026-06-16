@@ -11,13 +11,13 @@
 ## Installation
 
 You can install the package via Composer: <br>
-Add this line inside your composer repositories, if does not exist.
+<!-- Add this line inside your composer repositories, if does not exist.
 ```
 "repositories": [
     //...,
     {"type": "composer", "url": "https://packagist.wlink.com.np/repo/private/"}
 ]
-```
+``` -->
 
 ```code
 composer require nivesh/nepali-date

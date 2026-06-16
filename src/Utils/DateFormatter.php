@@ -10,37 +10,37 @@ class DateFormatter {
 
     private $converter;
     public $ESCAPE_CHAR = '#';
-    public $year, $month, $day, $weekday;
+    public int $year, $month, $day, $weekday;
 
-    public function format($format)
+    public function format(string $format)
     {
         $format = $format ? $format : '{Y}-{m}-{d}';
         $segments = $this->getAllFormats();
         return $this->handleEscape(str_replace(array_keys($segments), array_values($segments), $format));
     }
 
-    public function formatMonth($format)
+    public function formatMonth(string $format)
     {
         $format = $format ? $format : '{m}';
         $segments = $this->getMonthFormats();
         return $this->handleEscape(str_replace(array_keys($segments), array_values($segments), $format));
     }
 
-    public function formatQuarter($format)
+    public function formatQuarter(string $format)
     {
         $format = $format ? $format : '{Q}';
         $segments = $this->getQuarterFormats();
         return $this->handleEscape(str_replace(array_keys($segments), array_values($segments), $format));
     }
 
-    public function formatYear($format)
+    public function formatYear(string $format)
     {
         $format = $format ? $format : '{Y}';
         $segments = $this->getYearFormats();
         return $this->handleEscape(str_replace(array_keys($segments), array_values($segments), $format));
     }
 
-    private function handleEscape($string)
+    private function handleEscape(string $string)
     {
         return str_replace("{". $this->ESCAPE_CHAR, '{', $string);
     }
@@ -143,7 +143,7 @@ class DateFormatter {
         return $nepali ? $this->convertNumber($day) : $day;
     }
 
-    private function convertNumber($number)
+    private function convertNumber(int $number)
     {
         $nepaliNumbers = $this->getNepaliNumbers();
         return str_replace(array_keys($nepaliNumbers), $nepaliNumbers, $number);
