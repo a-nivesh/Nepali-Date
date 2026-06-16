@@ -143,7 +143,7 @@ class DateFormatter {
         return $nepali ? $this->convertNumber($day) : $day;
     }
 
-    private function convertNumber(int $number)
+    private function convertNumber(string $number)
     {
         $nepaliNumbers = $this->getNepaliNumbers();
         return str_replace(array_keys($nepaliNumbers), $nepaliNumbers, $number);
