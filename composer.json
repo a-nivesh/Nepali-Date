@@ -1,13 +1,13 @@
 {
     "name": "nivesh/nepali-date",
-    "description": "bikram samwat date and converter",
+    "description": "NepaliDate is a PHP package that allows you to seamlessly convert English (AD) dates to Nepali (Bikram Sambat - BS) dates. This package provides an easy-to-use interface to work with Nepali dates, supporting features like retrieving individual date components (year, month, day) and handling complex date formatting.",
     "license": "MIT",
     "type": "library",
     "minimum-stability": "stable",
     "authors": [
         {
-            "name": "nivesh.acharya",
-            "email": "nivesh.acharya@worldlink.com.np"
+            "name": "a-nivesh",
+            "email": "acharyanivesh@gmail.com"
         }
     ],
     "require": {
