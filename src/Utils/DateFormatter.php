@@ -168,7 +168,7 @@ class DateFormatter {
 
     private function resolveFiscalYear($nepali = false)
     {
-        $year = $this->month > 3 ? $this->year : $this->year - 1;
+        $year = $this->month > 2 ? $this->year : $this->year - 1;
         $fiscalYear = $this->getFiscalYearMapping()[$year];
 
         return $nepali ? $this->convertNumber($fiscalYear) : $fiscalYear;
